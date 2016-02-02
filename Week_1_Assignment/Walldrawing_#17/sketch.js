@@ -60,12 +60,6 @@ function draw() {
   {
     line(x4-k,y4,x3,y1+j+k)
   }
- //line(x4-5,y4,y1+j+5,x3)
- /*
-    for(k=0;k<(x4-x3);k=k+5)
-    {
-      line(x4-k,y4,x3,y1+j+k)
-    }
-    */
+ 
     
 }
