@@ -4,15 +4,13 @@ function setup() {
 
   createCanvas(windowWidth,windowHeight);
   createGraph();
-  //showCSVData();
+ 
 }
 
 var table;
   var startX;
   
 function preload() {
-  //my table is comma separated value "csv"
-  //and has a header specifying the columns labels
   table = loadTable("data/facebook_data.csv", "csv", "header");
 }
 
@@ -22,7 +20,6 @@ function showCSVData()
   var rows = table.getRows();
 
  
- //print the results
  for (var r = 0; r < table.getRowCount(); r++)
    for (var c = 0; c < table.getColumnCount(); c++)
      print(table.getString(r, c));
@@ -56,33 +53,23 @@ function createGraph()
     for(var y=0;y<24*(size+margin); y+=(size+margin)){
       if(i==0)
       {
-        //print(hoursText);
+        
         fill(0);
         textSize(10);
         text(hoursText[j],startX+x-60.0,startY+y,50.0,50.0);
       }
       
-       //fill(221, sin( radians (dayHoursData[j] ) )*55+20, cos( radians (dayHoursData[j] ))*62+38,100 );
       var colorVal = color(221, sin( radians (dayHoursData[j] ) )*55+20, cos( radians (dayHoursData[j] ))*62+38,100 );
-      /*
-     var myP = createP('Time  spent:'+hoursText[j]).size(size,size);
-     myP.position(x+startX,y+startY);
-     myP.mouseOver(showMessage);
-    // myP.style("display","none");
-     myP.style("color","white");
-     */
+     
      var myP = createDiv(dayHoursData[j]).size(size,size);
      myP.position(x+startX,y+startY);
      myP.mouseOver(showMessage);
      myP.innerHTML = dayHoursData[j];
-    // myP.style("display","none");
     
     myP.style('background-color',colorVal);
     myP.style("color",colorVal);
      
-     
     
-      //rect(x+startX,y+startY,size,size);   
    j++;
     }
     j=0;
@@ -107,9 +94,7 @@ function createGraph()
 
 function showMessage()
 {
-  //var myImg = document.getElementById("myImageID");
- // print("hi"+this);
-  //this.innerHTML = "hi therex x   x x x x  x x  x !";
+ 
   
   
   popupMessage.position(0,0);
@@ -118,13 +103,7 @@ function showMessage()
    var popupDiv = document.getElementById("popupDiv");
    popupDiv.innerHTML = "Time Spent:"+this.innerHTML+"mins";
   
-  /*
-  fill(255);
-  textSize(20);
-  ellipse(650,300,200,100);  
-  fill(0);
-  text(textBox.value().toString(),610,260,100,100);
-  */
+
 }
 function draw() {
   fill(221,55,62);
